@@ -5,7 +5,7 @@ class queue {
     Scanner sc = new Scanner(System.in);
     int n = 10;
     int[] arr = new int[10];
-    int front = 0, rear = -1;
+    int front = -1, rear = -1;
 
     void engueue() {
         if (rear == n - 1)
@@ -19,7 +19,11 @@ class queue {
                 System.out.println("Enter Data");
                 // front++;
                 for (int i = 0; i < num; i++) {
-                    rear++;
+                    if (front == -1 && rear == -1) {
+                        front = 0;
+                        rear = 0;
+                    } else
+                        rear++;
                     int data = sc.nextInt();
                     arr[rear] = data;
                 }
@@ -44,7 +48,6 @@ class queue {
             System.out.print(arr[i]);
         System.out.println();
     }
-
 }
 
 public class Queue_array {
@@ -71,5 +74,6 @@ public class Queue_array {
             System.out.println("press 1 to repeat else press any key to exit:-");
             p = sc.nextInt();
         } while (p == 1);
+        sc.close();
     }
 }
